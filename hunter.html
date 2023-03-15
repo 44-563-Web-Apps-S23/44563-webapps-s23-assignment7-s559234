@@ -41,7 +41,8 @@
 <div id="bushes">Number of bushes checked is zero.</div><br>
 <div id="penalty">Penalty is zero.</div><br>
 <div style="background-color: rgb(24, 214, 214); width:320px ;">Click for help.</div><br>
-<div id="help" onclick="help()">Help report</div>
+<div id="help" onclick="help()">Help report</div><br>
+<button onclick="bonus()" class="button">Bonus</button>
 <br>
 <div class="container" >
     <div><img src="bush.jpg" id="0" onclick="check(0)"></div>
@@ -135,5 +136,49 @@
             }
 
     }
+
+    let ranvalue1,ranvalue2,ranvalue3;
+        function bonus(){
+            ranvalue1=Math.floor(Math.random()*24);
+            
+            console.log(ranvalue1);
+            ranvalue2=Math.floor(Math.random()*24);
+            console.log(ranvalue2);
+            ranvalue3=Math.floor(Math.random()*24);
+            console.log(ranvalue3);
+            lastCheck=ranvalue3;
+            catLocation=ranvalue1;
+            mouseLocation=ranvalue2;
+            bonus=0;
+            penal=0;
+            let last_col=lastCheck%6;
+            let last_row=Math.floor(lastCheck/6);
+            let cat_col=catLocation%6;
+            let cat_row=Math.floor(catLocation/6);
+            let col_diff=Math.abs(last_col-cat_col);
+            let row_diff=(Math.abs(last_row-cat_row));
+            let rat_col=mouseLocation%6;
+            let rat_row=Math.floor(mouseLocation/6);
+            let rat_col_diff=Math.abs(last_col-rat_col);
+            let rat_row_diff=(Math.abs(last_row-rat_row));
+            console.log(row_diff,col_diff)
+            if(rat_row_diff<=1 && rat_col_diff<=1)
+            {
+                document.getElementById("help").innerHTML="squeek"
+                penal+=2;
+                penalty.innerHTML="Penalty is "+penal;
+            }
+            else if(row_diff<=1 && col_diff<=1)
+            {
+                document.getElementById("help").innerHTML="Meow"
+                penal+=2;
+                penalty.innerHTML="Penalty is "+penal;
+            }
+            else{
+                document.getElementById("help").innerHTML="sorry, no help available"
+                penal+=2;
+                penalty.innerHTML="Penalty is "+penal;
+            }
+        }
 </script>
 </html>
