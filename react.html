@@ -18,6 +18,8 @@
   <div id="counter">Count</div>
   <button type="button" class="btn btn-primary" onclick="recordTime()">React</button>
   <p id="countdown">I will become red </p>
+
+
   <script> 
   
     let reactTime
@@ -28,6 +30,7 @@
     }
 
     let x=0;
+    let fun=Math.floor((Math.random() * 10) + 2);
     function startTime(){
         fun=Math.floor((Math.random() * 10) + 2);
         for( x=0;x<fun;x++){
@@ -59,9 +62,8 @@
                 document.getElementById("countdown").innerHTML=x;
             },(fun-x)*1000);
     }
-
+ 
     
   </script>
-
 </body>
 </html>
